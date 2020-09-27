@@ -62,3 +62,11 @@ Resources:
           DEFAULT_REGION: !Ref DefaultRegion
           DEFAULT_ACCOUNT: !Ref DefaultAccount
           DEFAULT_ROLE: !Ref DefaultRole
+      Events:
+        InventoryCheckSchedule:
+          Type: Schedule
+          Properties:
+            Schedule: 'rate(5 minutes)'
+            Name: InventoryCheckSchedule
+            Description: How often the checker should run
+            Enabled: True
