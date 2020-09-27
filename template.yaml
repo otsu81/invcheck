@@ -33,6 +33,15 @@ Parameters:
     Type: String
     Default: role
     Description: The default rolename used by botofactory for role assuming
+  TelegramChatId:
+    Type: String
+    Default: 1231231231
+    Description: The Telegram channel or chat ID to be broadcast to
+  TelegramToken:
+    Type: String
+    NoEcho: True
+    Default: 123123123:t0k3nt0k3nt0k3nt0k3n
+    Description: The Telegram bot token
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
@@ -62,6 +71,9 @@ Resources:
           DEFAULT_REGION: !Ref DefaultRegion
           DEFAULT_ACCOUNT: !Ref DefaultAccount
           DEFAULT_ROLE: !Ref DefaultRole
+          TELEGRAM_CHAT_ID: !Ref TelegramChatId
+          TELEGRAM_TOKEN: !Ref TelegramToken
+
       Events:
         InventoryCheckSchedule:
           Type: Schedule

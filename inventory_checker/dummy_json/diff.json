@@ -190,7 +190,7 @@
                     "productIsAllowsBackorders": "false",
                     "productIsTracked": "true",
                     "requestedQuantityAvailable": "false",
-                    "status": "IN_STOCK",
+                    "status": "TESTING",
                     "statusIsEstimated": "false"
                 },
                 "relatedProducts": [
