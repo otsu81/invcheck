@@ -1,0 +1,212 @@
+{
+    "products": {
+        "product": [
+            {
+                "id": 5438798100,
+                "name": "NVIDIA GEFORCE RTX 3080 - SE",
+                "displayName": "NVIDIA GEFORCE RTX 3080",
+                "sku": "900-1G133-2530-000",
+                "displayableProduct": "false",
+                "manufacturerPartNumber": "900-1G133-2530-000",
+                "maximumQuantity": 1,
+                "thumbnailImage": "https://drh1.img.digitalriver.com/DRHM/Storefront/Company/nvidia/images/product/thumbnail/geforce-rtx-3080-shop-thumbnail-100x100.png",
+                "customAttributes": {
+                    "attribute": [
+                        {
+                            "name": "paypalOff",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "nonSolr",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "isGFNBundle",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "needsRestrictedShippingOption",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "shippingCountries",
+                            "type": "String",
+                            "value": "SE"
+                        },
+                        {
+                            "name": "shipmentAgreement",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "CategorySelection",
+                            "type": "String",
+                            "value": "Other"
+                        },
+                        {
+                            "name": "usps",
+                            "type": "String",
+                            "value": "false"
+                        },
+                        {
+                            "name": "additionalCartMessage",
+                            "type": "String",
+                            "value": "Begränsat till 1 per kund."
+                        },
+                        {
+                            "name": "isGFN",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "preorderOverride",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "originalIsViewable",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "clonedFromStaging",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "landedCost",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "originalIsOrderable",
+                            "type": "Boolean",
+                            "value": "true"
+                        },
+                        {
+                            "name": "length",
+                            "type": "Quantity",
+                            "value": "357.000 mm"
+                        },
+                        {
+                            "name": "upc",
+                            "type": "String",
+                            "value": "812674024509"
+                        },
+                        {
+                            "name": "weight",
+                            "type": "Quantity",
+                            "value": "2.500 kg"
+                        },
+                        {
+                            "name": "disablePayPal",
+                            "type": "Boolean",
+                            "value": "true"
+                        },
+                        {
+                            "name": "hideInfo",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "hideQty",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "nvidiaPVDecoder",
+                            "type": "String",
+                            "value": "PureVideo Decoder Bronze"
+                        },
+                        {
+                            "name": "width",
+                            "type": "Quantity",
+                            "value": "166.000 mm"
+                        },
+                        {
+                            "name": "ProductDescription",
+                            "type": "String",
+                            "value": "GeForce"
+                        },
+                        {
+                            "name": "privateStoreOnly",
+                            "type": "Boolean",
+                            "value": "false"
+                        },
+                        {
+                            "name": "shipsInTimeFrameOverrideEnabled",
+                            "type": "Boolean",
+                            "value": "false"
+                        }
+                    ]
+                },
+                "pricing": {
+                    "uri": "https://dispatch-nvidia.digitalriver.com/v1/shoppers/me/products/5438798100/pricing",
+                    "listPrice": {
+                        "currency": "SEK",
+                        "value": 7825
+                    },
+                    "listPriceWithoutVat": {
+                        "currency": "SEK",
+                        "value": 6260
+                    },
+                    "listPriceWithQuantity": {
+                        "currency": "SEK",
+                        "value": 7825
+                    },
+                    "salePriceWithQuantity": {
+                        "currency": "SEK",
+                        "value": 7825
+                    },
+                    "formattedListPrice": "7 825 kr",
+                    "formattedListPriceWithoutVat": "6 260 kr",
+                    "formattedListPriceWithQuantity": "7 825 kr",
+                    "formattedSalePriceWithQuantity": "7 825 kr",
+                    "totalDiscountWithQuantity": {
+                        "currency": "SEK",
+                        "value": 0
+                    },
+                    "formattedTotalDiscountWithQuantity": "0 kr",
+                    "listPriceIncludesTax": "true",
+                    "tax": {
+                        "vatPercentage": 25
+                    },
+                    "feePricing": {
+                        "salePriceWithFeesAndQuantity": {
+                            "currency": "SEK",
+                            "value": 7825
+                        },
+                        "formattedSalePriceWithFeesAndQuantity": "7 825 kr"
+                    }
+                },
+                "inventoryStatus": {
+                    "uri": "https://dispatch-nvidia.digitalriver.com/v1/shoppers/me/products/5438798100/inventory-status",
+                    "availableQuantityIsEstimated": "false",
+                    "productIsInStock": "false",
+                    "productIsAllowsBackorders": "false",
+                    "productIsTracked": "true",
+                    "requestedQuantityAvailable": "false",
+                    "status": "PRODUCT_INVENTORY_OUT_OF_STOCK",
+                    "statusIsEstimated": "false"
+                },
+                "relatedProducts": [
+                    {
+                        "id": 5440852300,
+                        "name": "GeForce NOW 1 Year Membership (RTX 30 Series Offer)",
+                        "image": "https://drh1.img.digitalriver.com/DRHM/Storefront/Company/nvidia/images/product/thumbnail/geforce-rtx-bundle-geforce-now-thumbnail-100x100.png"
+                    },
+                    {
+                        "id": 5440851800,
+                        "name": "Watch Dogs: Legion",
+                        "image": "https://drh1.img.digitalriver.com/DRHM/Storefront/Company/nvidia/images/product/thumbnail/geforce-rtx-bundle-watch-dogs-legion-thumbnail-100x100.png"
+                    }
+                ],
+                "viewStyle": "ampere"
+            }
+        ]
+    }
+}

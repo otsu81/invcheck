@@ -1,0 +1,64 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  inventory checker
+
+
+Parameters:
+  SesSnsAccount:
+    Type: String
+    Default: 123456789012
+    Description: The account ID where the SES and SNS role is
+  SesSnsRoleName:
+    Type: String
+    Default: rolename
+    Description: The SES and SNS role to be assumed in the SES/SNS account
+  ApiUrl:
+    Type: String
+    Default: https://
+    Description: The URL of the API to be checked
+  TopicArn:
+    Type: String
+    Default: arn
+    Description: The ARN of the SNS topic to be published to
+  DefaultRegion:
+    Type: String
+    Default: eu-north-1
+    Description: The default region used by botofactory
+  DefaultAccount:
+    Type: String
+    Default: 123456789012
+    Description: The default account used by botofactory for role assuming
+  DefaultRole:
+    Type: String
+    Default: role
+    Description: The default rolename used by botofactory for role assuming
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 120
+
+Resources:
+  InventoryChecker:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: inventory_checker/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Policies:
+      - Version: 2012-10-17
+        Statement:
+        - Sid: STSAllowAssumeRole
+          Effect: Allow
+          Action: sts:AssumeRole
+          Resource: !Sub "arn:aws:iam::${SesSnsAccount}:role/${SesSnsRoleName}"
+      Environment:
+        Variables:
+          ACCOUNT_ID: !Ref SesSnsAccount
+          ROLE: !Ref SesSnsRoleName
+          URL: !Ref ApiUrl
+          TOPIC_ARN: !Ref TopicArn
+          DEFAULT_REGION: !Ref DefaultRegion
+          DEFAULT_ACCOUNT: !Ref DefaultAccount
+          DEFAULT_ROLE: !Ref DefaultRole
