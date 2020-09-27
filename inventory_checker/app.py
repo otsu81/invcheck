@@ -18,52 +18,59 @@ def __get_dummy_json():
 
 
 def lambda_handler(event, context):
+    try:
+        if event.get('test') == 'True':
+            response = __get_dummy_json()
+        else:
+            response = requests.get(os.environ.get('URL')).json()
 
-    if event.get('test') == 'True':
-        response = __get_dummy_json()
-    else:
-        response = requests.get(os.environ.get('URL')).json()
+        inventory = response\
+            .get('products')\
+            .get('product')[0]\
+            .get('inventoryStatus')\
+            .get('status')
+        product = response\
+            .get('products')\
+            .get('product')[0]\
+            .get('displayName')
 
-    inventory = response\
-        .get('products')\
-        .get('product')[0]\
-        .get('inventoryStatus')\
-        .get('status')
-    product = response\
-        .get('products')\
-        .get('product')[0]\
-        .get('displayName')
+        if not inventory:
+            log.warning('API field empty')
+            Telegram().send(
+                'API field empty, double check API endpoint'
+            )
+        elif inventory != 'PRODUCT_INVENTORY_OUT_OF_STOCK':
+            log.warning('ACHTUNG OBER ALLES')
 
-    if not inventory:
-        log.warning('API field empty')
-    elif inventory != 'PRODUCT_INVENTORY_OUT_OF_STOCK':
-        log.warning('ACHTUNG OBER ALLES')
+            sns = BotoFactory().get_capability(
+                boto3.client, boto3.Session(), 'sns',
+                account_id=os.environ.get('ACCOUNT_ID'),
+                rolename=os.environ.get('ROLE'),
+                region='eu-west-1'
+            )
 
-        sns = BotoFactory().get_capability(
-            boto3.client, boto3.Session(), 'sns',
-            account_id=os.environ.get('ACCOUNT_ID'),
-            rolename=os.environ.get('ROLE'),
-            region='eu-west-1'
+            message = f"API change {product} {inventory}"
+            result = sns.publish(
+                TopicArn=os.environ.get('TOPIC_ARN'),
+                Subject=f"ACHTUNG KAUFEN {product} {inventory}",
+                Message=message
+            )
+
+            log.info(result)
+
+            result = Telegram().send(message)
+            log.info(result)
+
+        else:
+            log.info(f"{datetime.now()}: {product} {inventory}")
+
+        return {
+            "statusCode": 200,
+            "body": json.dumps({
+                "message": inventory,
+            }),
+        }
+    except Exception as e:
+        Telegram().send(
+            f"Exception raised: {e}"
         )
-
-        message = f"API change {product} {inventory}"
-        result = sns.publish(
-            TopicArn=os.environ.get('TOPIC_ARN'),
-            Subject=f"ACHTUNG KAUFEN {product} {inventory}",
-            Message=message
-        )
-
-        log.info(result)
-
-        result = Telegram().send(message)
-        log.info(result)
-
-    else:
-        log.info(f"{datetime.now()}: {product} {inventory}")
-
-    return {
-        "statusCode": 200,
-        "body": json.dumps({
-            "message": inventory,
-        }),
-    }
